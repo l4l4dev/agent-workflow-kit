@@ -62,6 +62,23 @@ Explicit human approval is required before:
 
 An agent may investigate, compare alternatives, explain trade-offs, and prepare recommendations, but it must not make or imply the Human Decision.
 
+## Bootstrap Ordering Rule
+
+Before Implementation begins, the repository must contain the applicable Definition and the explicit Human Decision that governs it. For this rule, repository-resident means preserved in the authoritative committed repository state, not only in chat, transient output, or an uncommitted working tree. The Definition must make the Work Item's objective, Approved Scope, explicit non-goals, and Acceptance Criteria reviewable. The governing Human Decision must identify the Definition it approves. Neither record presence nor task discussion substitutes for explicit human approval.
+
+Independent Review must not begin until both the reviewed Work Item's Definition and its governing Human Decision are repository-resident. A reviewer must stop and report the missing authority context rather than reconstruct it from chat history, agent memory, Implementation, or inference.
+
+This rule becomes effective when this governance change enters the authoritative committed repository state. It applies to every Work Item whose Implementation has not begun at that point. Bootstrap work already in Implementation or a later role must not be represented retroactively as having satisfied the rule. Before further work is treated as governed, an authorized human must explicitly decide whether and how that Work Item may continue, and the repository must preserve both its actual prior state and that Human Decision through the temporary mechanism below. Missing prior records must not be backdated or invented. An Independent Review begun without the required repository context must restart after that context becomes repository-resident if it is to qualify as Independent Review.
+
+Until the canonical Definition and Human Decision specifications and templates are approved and available, the following temporary bootstrap governance applies:
+
+- the Work Item's defining content and the Human Decision governing it must be preserved as explicit, reviewable prose in a repository artifact explicitly approved by an authorized human before Implementation begins;
+- the artifact must state that it is temporary bootstrap governance and must not present itself as a canonical `DEF` or `HD` record;
+- the Human Decision must be explicit and must not be inferred from authorship, file presence, Implementation activity, or automation; and
+- the temporary artifact must remain distinguishable from future Canonical Records and may be replaced for future work by the approved canonical specifications and templates without rewriting what governed bootstrap work.
+
+This temporary mechanism preserves Repository First without defining Canonical Record syntax. It does not establish identifiers, metadata, schemas, file or directory conventions, templates, workflow transitions, or validation behavior. Once the canonical Definition and Human Decision mechanisms become available, new Work Items must use them; temporary bootstrap artifacts must not be relabeled or represented as records that did not exist at the time.
+
 ## Role Separation
 
 Roles must remain distinct:
@@ -118,7 +135,7 @@ When resuming work, an agent must:
 7. read only the records needed to resume safely; and
 8. avoid continuing from chat history alone.
 
-Until the Canonical Record Model is implemented, bootstrap tasks rely on available committed governance files and explicitly supplied task instructions. Agents must not invent record paths or assume missing records exist.
+Until the canonical Definition and Human Decision mechanisms are available, bootstrap tasks must satisfy the temporary repository-first governance and ordering rule defined above. Explicitly supplied task instructions outside the repository may provide context but are not an authoritative substitute. Agents must not invent record paths, approvals, or missing records.
 
 ## Stop and Report
 
